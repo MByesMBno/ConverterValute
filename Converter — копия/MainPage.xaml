@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Converter.MainPage"
+             xmlns:y="clr-namespace:Converter"
+             BackgroundColor="DimGray"
+             x:DataType="y:MainViewModel">
+
+    <StackLayout>
+        <Label TextColor="Black" Text="Converter" HorizontalTextAlignment="Center" FontSize="30"/>
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <DatePicker BackgroundColor="DarkViolet" TextColor="White" Date="{Binding SelectedDate, Mode=TwoWay}" Grid.Row="0" Grid.Column="4"/>
+            <Label Text="{Binding CourseOnDay}" TextColor="White"  Grid.Row="1" Grid.Column="4"/>
+            <Picker TextColor="White" ItemsSource="{Binding Valutes}"
+                ItemDisplayBinding="{Binding DisplayName}"
+                SelectedItem="{Binding SelectedMainValute}"
+                x:Name="MainValutePicker" Grid.Row="2" Grid.Column="0" BackgroundColor="#2A2A2A"/>
+
+            <Picker TextColor="White" ItemsSource="{Binding Valutes}"
+                ItemDisplayBinding="{Binding DisplayName}"
+                SelectedItem="{Binding SelectedSecondaryValute}"
+                x:Name="SecondaryValutePicker" Grid.Row="4" Grid.Column="0" BackgroundColor="#2A2A2A"/>
+
+
+            <Entry TextColor="White" Placeholder="Amount"
+               Text="{Binding AmountMainValute}" Grid.Row="2" Grid.Column="3" BackgroundColor="#2A2A2A"/>
+
+
+            <Label TextColor="White" 
+               Text="{Binding ConvValute}" Grid.Row="4" Grid.Column="3" BackgroundColor="#2A2A2A" VerticalTextAlignment="Center" Padding="8,0,0,0" Margin="0,5,0,0" />
+        </Grid>
+    </StackLayout>
+    
+
+</ContentPage>
